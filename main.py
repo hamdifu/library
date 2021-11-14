@@ -7,7 +7,6 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 import requests
 from functools import wraps
 from flask_gravatar import Gravatar
-from smtplib import SMTP
 from forms import RegisterForm,LoginForm,SearchForm
 import os
 
@@ -49,7 +48,7 @@ def admin_only(f):
 
 subs = db.Table('subs',
                 db.Column('id',db.Integer,db.ForeignKey('user.id')),
-                db.Column('book_id',db.Integer,db.ForeignKey('book.book_id'))
+                db.Column('book_id',db.String(250),db.ForeignKey('book.book_id'))
 )
 
 #User
@@ -65,7 +64,7 @@ class User(UserMixin,db.Model):
 #Books
 class Book(db.Model):
     __tablename__ = "book"
-    book_id = db.Column(db.Integer, primary_key=True)
+    book_id = db.Column(db.String(250), primary_key=True)
     title = db.Column(db.String(250), unique=True, nullable=False)
     author = db.Column(db.String(250),nullable=False)
     issue_dt = db.Column(db.String(250),nullable=False)
@@ -146,26 +145,32 @@ def checkout(id):
     if request.method == 'POST':
         pass
 
-    if Book.query.filter_by(book_id=id):
-        new_book = Book.query.filter_by(book_id=id).first()
-        current_user.subscribers.append(new_book)
-    else:
-        url = 'https://www.googleapis.com/books/v1/volumes?q=' + id
-        response = requests.get(url)
-        data = response.json()['items']
-        new_book = Book(
-            id=id,
-            title=data['volumeInfo']['title'],
-            author=data['volumeInfo']['authors'],
-            issue_dt=None,
-            img_url=data['volumeInfo']['imageLinks']['thumbnail'],
-            ebook=data['volumeInfo']['previewLink'],
-            month=0
-        )
-        db.session.add(new_book)
-        db.session.commit()
-        current_user.subscribers.append(new_book)
-    return render_template('checkout.html', book=new_book)
+    url = 'https://www.googleapis.com/books/v1/volumes?q=' + id
+    response = requests.get(url)
+    data = response.json()['items']
+    return render_template('checkout.html', books=data)
+    # if Book.query.filter_by(book_id=id):
+    #     new_book = Book.query.filter_by(book_id=id).first()
+    #     current_user.subscribers.append(new_book)
+    #     db.session.commit()
+    # else:
+
+        # new_book = Book(
+        #     book_id=id,
+        #     title=data['volumeInfo']['title'],
+        #     author=data['volumeInfo']['authors'],
+        #     issue_dt='',
+        #     img_url=data['volumeInfo']['imageLinks']['thumbnail'],
+        #     ebook=data['volumeInfo']['previewLink'],
+        #     month=0
+        # )
+        # db.session.add(new_book)
+        # db.session.commit()
+        # current_user.subscribers.append(new_book)
+        # db.session.commit()
+
+    # books = [book for book in current_user.subscribers if book.issue_dt == '']
+
 
 
 

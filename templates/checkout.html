@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Checkout</title>
     <link rel="stylesheet" href="../static/css/checkout.css" />
     <script src="../static/js/website.js" async></script>
@@ -39,8 +41,8 @@
 <!--                    <h2 class="section-header">EBOOK</h2>-->
 <!--                    <div class="shop-items">-->
 <!--                        <div class="shop-item">-->
-<!--                            <span class="shop-item-title">{{book.title}}</span>-->
-<!--                            <img class="shop-item-image" src={{book.img_url}}>-->
+<!--                            -->
+<!--
 <!--                            <div class="shop-item-details">-->
 <!--                                <span class="shop-item-price">₹100.00</span>-->
 <!--                                <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>-->
@@ -157,6 +159,21 @@
 
     
      -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <h1><a class="navbar-brand" href="{{url_for('home')}}" style="font-weight:900;">NameLab</a></h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="nav navbar-nav d-flex">
+                <li class="nav-item">
+                    <a class="btn btn-warning me-2" href="{{url_for('logout')}}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <section class="container content-section">
         <h2 class="section-header">CART</h2>
@@ -165,19 +182,21 @@
             <span class="cart-price cart-header cart-column">PRICE</span>
             <span class="cart-quantity cart-header cart-column">MONTHS</span>
         </div>
-        <div class="cart-items">
-            <div class="cart-row">
-                <div class="cart-item cart-column">
-                    <img class="cart-item-image" src=book.img_url width="100" height="100">
-                    <span class="cart-item-title">book.title</span>
-                </div>
-                <span class="cart-price cart-column">₹100.00</span>
-                <div class="cart-quantity cart-column">
-                    <input class="cart-quantity-input" type="number" value="1">
-                    <button class="btn btn-danger" type="button">REMOVE</button>
+        {%for book in books[:1]:%}
+            <div class="cart-items">
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <img class="cart-item-image" src={{book['volumeInfo']['imageLinks']['thumbnail']}} width="100" height="100">
+                        <span class="cart-item-title">{{book["volumeInfo"]['title']}}</span>
+                    </div>
+                    <span class="cart-price cart-column">₹100.00</span>
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="1">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        {%endfor%}
 <!--            <div class="cart-row">-->
 <!--                <div class="cart-item cart-column">-->
 <!--                    <img class="cart-item-image" src="https://images-na.ssl-images-amazon.com/images/I/91U6tjtUrYL.jpg" width="100" height="100">-->
@@ -205,8 +224,14 @@
             <strong class="cart-total-title">Total</strong>
             <span class="cart-total-price">₹100</span>
         </div>
-        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        <a class="btn btn-primary btn-purchase" type="button" href="{{books[0]['volumeInfo']['previewLink']}}">Purchase</a>
     </section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
     
 </body>
 </html>
