@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:300,400,500,600,700,800,900&display=swap');
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #111;
+
+}
+
+.navbar{
+    padding: 10px 5%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #00000038;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+.btn{
+    font-size: 12px;
+    border-radius: 50px;
+    color: #212529;
+    font-weight: 900;
+    margin-top: 9px;
+}
+
+.control-label {
+    display: none;
+}
+
+#submit{
+display:inline !important;
+}
+.form-group{
+display:inline;
+}
+
+.select{
+    padding:4px 10px;
+    color: #333;
+    background-color: #eee;
+    border:1px solid #ddd;
+    cursor:pointer;
+    border-radius:15px;
+    margin-top:5px;
+}
+.row_poster {
+    width: 100%;
+    object-fit: contain;
+    max-height: 300px;
+    margin-right: 10px;
+    transition: transform 450ms;
+
+}
+.row_posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+    /* padding: 20px; */
+
+}
+.row_poster:hover{
+    transform:scale(1.08);
+}
+.row_posters::-webkit-scrollbar{
+    display: none;
+}
+.row {
+    color: #e5e5e5;
+    margin-left: 5%;
+    margin-right: 0;
+}
+
+.row h2{
+    font-size: large;
+    font-weight: 700;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+/* .nav_black{
+    background-color: #111;
+} */
+
+.carousel-item{
+    height:32rem;
+    background:#111 ;
+    color: white;
+    position: relative;
+}
+.container{
+    position: absolute;
+    bottom:0;
+    padding-right: 250px;
+    padding-left: 5%;
+    padding-bottom:50px;
+    text-shadow: 2px 2px #0000006c;
+}
+
+.container h1{
+    font-weight: 900;
+}
+
+.overlay-image{
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top:0;
+    opacity: 0.6;
+}
+
+.container .btn{
+    /* padding: 5px 50px; */
+    font-size: 25px;
+    border-radius: 50px;
+    color: #212529;
+    font-weight: 900;
+    padding: 20px 60px;
+    font-size: 25px;
+    text-shadow: none;
+}
+
+::-webkit-scrollbar-button:single-button {
+    background-color: #bbbbbb;
+    display: block;
+    border-style: solid;
+    height: 13px;
+    width: 16px;
+  }

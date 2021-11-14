@@ -1,0 +1,91 @@
+<!--{% extends 'bootstrap/base.html' %}-->
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <img class="wave" src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png">
+    <div class="container row">
+        <div class="img col-md-6">
+            <img
+                src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/82b8d8efd3b0ac6382b9d0d71a99c6cf9dcefa23/img/bg.svg">
+        </div>
+        <div class="login-content col-md-6">
+            <form method='POST'>
+                {{ form.csrf_token }}
+                <img
+                    src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/82b8d8efd3b0ac6382b9d0d71a99c6cf9dcefa23/img/avatar.svg">
+                <h2 class="title">Welcome</h2>
+
+                {%if wtf.form_errors(form, hiddens="only"):%}
+                    {{wtf.form_errors(form, hiddens="only")}}
+                {%endif%}
+                <div class="input-div name">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Email</h5>
+                        {{ wtf.form_field(form.email) }}
+<!--                        <input type="text" class="input">-->
+                    </div>
+                </div>
+
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="div">
+                        <h5>Username</h5>
+                        {{ wtf.form_field(form.name) }}
+<!--                        <input type="text" class="input">-->
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Password</h5>
+                        {{ wtf.form_field(form.password) }}
+<!--                        <input type="password" class="input">-->
+                    </div>
+                </div>
+                {{ wtf.form_field(form.submit) }}
+<!--                <input type="submit" class="btn" value="Register" onClick="myFunction()">-->
+            </form>
+        </div>
+    </div>
+    <!-- <script type="text/javascript" src="js/main.js"></script> -->
+    <script type="text/javascript">
+        const inputs = document.querySelectorAll(".input");
+
+
+        function addcl() {
+            let parent = this.parentNode.parentNode;
+            parent.classList.add("focus");
+        }
+
+        function remcl() {
+            let parent = this.parentNode.parentNode;
+            if (this.value == "") {
+                parent.classList.remove("focus");
+            }
+        }
+
+
+        inputs.forEach(input => {
+            input.addEventListener("focus", addcl);
+            input.addEventListener("blur", remcl);
+        });
+
+    </script>
+</body>
+{% endblock %}

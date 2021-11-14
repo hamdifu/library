@@ -1,0 +1,270 @@
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <!-- <style type="text/CSS">
+
+        #slider {
+        overflow: hidden;
+    }
+    #slider figure {
+        position: relative;
+        
+        width: 500%;
+        margin: 0;
+        left: 0;
+        animation: 20s slider infinite;
+    }
+    #slider figure img {
+        
+        width: 20%;
+        float: left;
+
+    }
+    @keyframes slider{
+     0% {
+        left: 0;
+    }
+    20% {
+        left: 0;
+    }
+    25% {
+        left: -100%;
+    }
+    45% {
+        left: -100%;
+
+    }
+    50% {
+        left: -200%
+    }
+    70% 
+    {
+        left: -200%;
+    }
+    75% {
+        left: -300%;
+    }
+    95% {
+        left: -300%;
+    }
+    100%{
+        left: -400%;
+    }
+}
+    </style> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <h1><a class="navbar-brand" href="#">NameLab</a></h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="nav navbar-nav d-flex">
+                <li class="nav-item mx-4">
+                    <form class="form-inline my-2 my-lg-0" method="post">
+                        {{ form.title(class='select') }}  {{ form.submit(class='btn btn-outline-warning') }}
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning me-2" href="{{url_for('logout')}}">Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- <div id="slider">
+        <figure>
+            <img src="https://tse3.mm.bing.net/th?id=OIP.lzAaU1LDgguHOjSazW_k3QHaEK&pid=Api&P=0&w=298&h=168"
+                height="500px" width=300px>
+            <img src="https://tse2.mm.bing.net/th?id=OIP.b1Hco_5YV66EckgZK9i2ngHaLX&pid=Api&P=0&w=300&h=300"
+                height="500px" width=100px>
+            <img src="https://tse2.mm.bing.net/th?id=OIP.b1Hco_5YV66EckgZK9i2ngHaLX&pid=Api&P=0&w=300&h=300"
+                height="500px" width=100px>
+            <img src="https://tse2.mm.bing.net/th?id=OIP.b1Hco_5YV66EckgZK9i2ngHaLX&pid=Api&P=0&w=300&h=300"
+                height="500px" width=100px>
+            <img src="https://tse2.mm.bing.net/th?id=OIP.b1Hco_5YV66EckgZK9i2ngHaLX&pid=Api&P=0&w=300&h=300"
+                height="500px" width=100px>
+
+        </figure>
+    </div> -->
+
+    <!-- <a class="carousel-control-prev" href="#testimonials-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#testimonials-carousel" role="button" data-slide="next"> -->
+    <!-- <span class="carousel-control-next-icon"></span> -->
+
+    <div id="banner" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="7000">
+                <div class="overlay-image"
+                    style="background-image: url(https://images.unsplash.com/photo-1610466024868-910c6e7e8929?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80);">
+                </div>
+                <div class="container">
+                    <h1>Harry Potter</h1>
+                    <p>The books concern a wizard called Harry Potter and his journey through Hogwarts School of
+                        Witchcraft and Wizardry. The stories tell of him overcoming dangerous obstacles to defeat the
+                        Dark wizard Lord Voldemort, who killed his parents when Harry was 15 months old.</p>
+                    <a href="#" class="btn btn-lg btn-warning">Read</a>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="7000">
+                <div class="overlay-image"
+                    style="background-image: url(https://scontent.fdel46-1.fna.fbcdn.net/v/t1.6435-9/s1080x2048/44319731_2028297270795595_7527039845345001472_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=t85uGToNtYUAX8HD3St&_nc_ht=scontent.fdel46-1.fna&oh=43acec6fe67a290f2cb233359bad7d30&oe=61A4A467);">
+                </div>
+                <div class="container">
+                    <h1>Kane and Abel</h1>
+                    <p>Born on the same day near the turn of the century on opposite sides of the world, both men are
+                        brought together by fate and the quest of a dream.These two men — ambitious, powerful, ruthless
+                        — are locked in a relentless struggle to build an empire, fuelled by their all-consuming hatred.
+                        Over 60 years and three generations, through war, marriage, fortune, and disaster, Kane and Abel
+                        battle for the success and triumph that only one man can have.</p>
+                    <a href="#" class="btn btn-lg btn-warning">Read</a>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="7000">
+                <div class="overlay-image"
+                    style="background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2ffd6d78028297.5c994240bf1bc.jpg);">
+                </div>
+                <div class="container">
+                    <h1>Jane Eyre</h1>
+                    <p>Orphaned as a child, Jane has felt an outcast her whole young life. Her courage is tested once
+                        again when she arrives at Thornfield Hall, where she has been hired by the brooding, proud
+                        Edward Rochester to care for his ward Adèle. Jane finds herself drawn to his troubled yet kind
+                        spirit. She falls in love. Hard.</p>
+                    <a href="#" class="btn btn-lg btn-warning">Read</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <h2>E Books ▶️</h2>
+        <div class="row_posters">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/91U6tjtUrYL.jpg" alt="" class="row_poster">
+            <img src="https://s26162.pcdn.co/wp-content/uploads/2018/02/gatsby-original2.jpg" alt="" class="row_poster">
+            <img src="https://www.designwizard.com/wp-content/uploads/2019/07/20-Conviction-Kelly-Loy-Gilbert-Book-Cover-Ideas.jpg"
+                alt="" class="row_poster">
+            <img src="https://s26162.pcdn.co/wp-content/uploads/2018/12/184224_1326895.794x1200_q95_crop-smart_upscale.jpg"
+                alt="" class="row_poster ">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg" alt="" class="row_poster ">
+            <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352508865l/6975014.jpg"
+                alt="" class="row_poster ">
+            <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/7/30/1406719784584/a3673b4b-74cd-4544-8eba-bd0b51fbee5f-1360x2040.jpeg?width=700&quality=85&auto=format&fit=max&s=f872e3d83c535f8659a964c8328fa977"
+                alt="" class="row_poster ">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/817tHNcyAgL.jpg" alt="" class="row_poster ">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/91pZEozf9qL.jpg" alt="" class="row_poster ">
+        </div>
+
+    </div>
+    <!-- <div class="row">
+        <h2>EBOOKS</h2>
+        <ul id="autoWidth" class="row_posters cs-hidden">
+            <li class="item-a">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.xlNxUUvCYttYOZ7K4cXaTwHaLS&pid=Api&P=0&w=300&h=300" alt=""
+                    class="row_poster">
+            </li>
+            <li class="item-b">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.xlNxUUvCYttYOZ7K4cXaTwHaLS&pid=Api&P=0&w=300&h=300" alt=""
+                    class="row_poster">
+            </li>
+            <li class="item-c">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.xlNxUUvCYttYOZ7K4cXaTwHaLS&pid=Api&P=0&w=300&h=300" alt=""
+                    class="row_poster">
+            </li>
+            <li class="item-d">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.xlNxUUvCYttYOZ7K4cXaTwHaLS&pid=Api&P=0&w=300&h=300" alt=""
+                    class="row_poster">
+            </li>
+            <li class="item-e">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.xlNxUUvCYttYOZ7K4cXaTwHaLS&pid=Api&P=0&w=300&h=300" alt=""
+                    class="row_poster">
+            </li>
+            <li class="item-f">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.xlNxUUvCYttYOZ7K4cXaTwHaLS&pid=Api&P=0&w=300&h=300" alt=""
+                    class="row_poster">
+            </li>
+        </ul>
+    </div> -->
+
+
+    <div class="row">
+        <h2>Audio Books ▶️</h2>
+        <div class="row_posters">
+            <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/7/30/1406719784584/a3673b4b-74cd-4544-8eba-bd0b51fbee5f-1360x2040.jpeg?width=700&quality=85&auto=format&fit=max&s=f872e3d83c535f8659a964c8328fa977"
+                alt="" class="row_poster  ">
+            <img src="https://m.media-amazon.com/images/I/51zazdnfdpL.jpg" alt="" class="row_poster ">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/91rq1j7GYhL.jpg" alt="" class="row_poster ">
+
+
+            <img src="https://i.pinimg.com/originals/fc/34/a3/fc34a32c5a16264a2f9b128b1938d917.png" alt=""
+                class="row_poster ">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/41M1cfeGGqL.jpg" alt="" class="row_poster ">
+            <img src="https://i0.wp.com/madebypernille.com/wp-content/uploads/2020/08/81tdbrewW0L.jpg?resize=1140%2C1766&ssl=1"
+                alt="" class="row_poster ">
+
+            <img src="https://tse2.mm.bing.net/th?id=OIP.xlNxUUvCYttYOZ7K4cXaTwHaLS&pid=Api&P=0&w=300&h=300" alt=""
+                class="row_poster ">
+
+            <img src="https://tse2.mm.bing.net/th?id=OIP.xlNxUUvCYttYOZ7K4cXaTwHaLS&pid=Api&P=0&w=300&h=300" alt=""
+                class="row_poster ">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.xlNxUUvCYttYOZ7K4cXaTwHaLS&pid=Api&P=0&w=300&h=300" alt=""
+                class="row_poster ">
+        </div>
+    </div>
+    <div class="row">
+        <h2>Video Books ▶️</h2>
+        <div class="row_posters">
+
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71M8ABydLfL.jpg" alt="" class="row_poster ">
+            <img src="https://i0.wp.com/madebypernille.com/wp-content/uploads/2020/08/81tdbrewW0L.jpg?resize=1140%2C1766&ssl=1"
+                alt="" class="row_poster ">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/817tHNcyAgL.jpg" alt="" class="row_poster  ">
+            <img src="https://m.media-amazon.com/images/I/51zazdnfdpL.jpg" alt="" class="row_poster ">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/91pZEozf9qL.jpg" alt="" class="row_poster ">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/91rq1j7GYhL.jpg" alt="" class="row_poster ">
+            <img src="https://pictures.abebooks.com/isbn/9783833309403-us.jpg" alt="" class="row_poster ">
+            <img src="https://i.pinimg.com/originals/fc/34/a3/fc34a32c5a16264a2f9b128b1938d917.png" alt=""
+                class="row_poster ">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71zmnn94OVL.jpg" alt="" class="row_poster ">
+        </div>
+    </div>
+
+    <script>
+    //     const nav = document.getElementById('nav');
+    //     window.addEventListener('scroll', () => {
+    //         if (window.scrollY >= 100) {
+    //             nav.classList.add('nav_black');
+    //         } else {
+    //             nav.classList.remove('nav_black');
+    //         }
+
+    //     });
+<!--    function myFunction() {-->
+<!--            window.location.href = {{url_for('logout')}};-->
+<!--        }-->
+     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

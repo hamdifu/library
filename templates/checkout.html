@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../static/css/checkout.css" />
+    <script src="../static/js/website.js" async></script>
+</head>
+<body>
+<!--     
+    <div class="small-container book">
+        <div class="row">
+            <div class="col-2">
+               <img src="https://images-na.ssl-images-amazon.com/images/I/91U6tjtUrYL.jpg" width="20%" id="ebook">
+            </div>
+        
+                <div class="col-2">
+                <p> HOME/EBOOK</p>
+                <h1>SALLY RONNY</h1>
+                <h4>PER MONTH CHARGES Rs100</h4>
+                <select>
+                    <option>HOW MANY MONTHS YOU WANT TO ISSUE?</option>
+                    <option>1</option>
+                    <option>2</option> 
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                   </select> -->
+<!--                   <section class="container content-section">-->
+<!--                    <h2 class="section-header">EBOOK</h2>-->
+<!--                    <div class="shop-items">-->
+<!--                        <div class="shop-item">-->
+<!--                            <span class="shop-item-title">{{book.title}}</span>-->
+<!--                            <img class="shop-item-image" src={{book.img_url}}>-->
+<!--                            <div class="shop-item-details">-->
+<!--                                <span class="shop-item-price">₹100.00</span>-->
+<!--                                <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+         
+                   <!-- <div>
+                   <button class="addtocart" type="button">ADD TO CART
+                   </button>                     
+                   </div> -->
+                   <!-- <h3>BOOK DETAILS</h3><br>
+            
+                   <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br>
+                     Error cum hic sint debitis enim iste reiciendis eaque totam?<br> Fugit commodi, error impedit dolor
+                      perspiciatis sunt nihil similique eum mollitia earum?</P>
+                 </div>
+            
+        </div> -->
+    <!-- </div> -->
+    <!-- <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>BOOK </th>
+                <th>MONTHS</th>
+                <th>SUBTOTAL</th>
+            </tr>
+
+            <tr>
+                <td>
+                 <div class="cart-info">
+                     <img src="https://images-na.ssl-images-amazon.com/images/I/91U6tjtUrYL.jpg" width=12% >
+                     <div>
+                         <p>SALLY RONNY</p>
+                         <br>
+                         
+                         <button class="bt remove-bt"
+                           type="button">REMOVE</button>
+                   
+                     </div>
+
+                 </div>
+                </td>
+                <td> <input class="months" type="number" value ="1"></td>
+                
+                <td>RS 50</td>
+
+            </tr>
+            <tr>
+                <td>
+                 <div class="cart-info">
+                     <img src="https://images-na.ssl-images-amazon.com/images/I/91U6tjtUrYL.jpg" width=12% >
+                     <div>
+                         <p>SALLY RONNY</p>
+                         <br>
+                         
+                         <button class="bt remove-bt"
+                   type="button">REMOVE</button>
+                   
+                     </div>
+
+                 </div>
+                </td>
+               <td> <input class="months" type="number" value ="1"></td>
+                
+                <td>RS 50</td>
+
+            </tr>
+            <tr>
+                <td>
+                 <div class="cart-info">
+                     <img src="https://images-na.ssl-images-amazon.com/images/I/91U6tjtUrYL.jpg" width=12% >
+                     <div>
+                         <p>SALLY RONNY</p>
+                         <br>
+                         
+                         <button class="bt remove-bt"
+                         type="button">REMOVE</button>
+                         
+                     </div>
+
+                 </div>
+                </td>
+                <td> <input class="months" type="number" value ="1"></td>
+                
+                <td>RS 50</td>
+
+            </tr>
+            
+
+           
+            
+        </table>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>SUBTOTAL</td>
+                    <td>Rs50.00</td>
+                </tr>
+                <tr>
+                    <td>TAX</td>
+                    <td>Rs20.00</td>
+                </tr>
+                <tr>
+                <td>TOTAL</td>
+                    <td>Rs70.00</td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+    
+     -->
+
+    <section class="container content-section">
+        <h2 class="section-header">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">BOOK</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">MONTHS</span>
+        </div>
+        <div class="cart-items">
+            <div class="cart-row">
+                <div class="cart-item cart-column">
+                    <img class="cart-item-image" src=book.img_url width="100" height="100">
+                    <span class="cart-item-title">book.title</span>
+                </div>
+                <span class="cart-price cart-column">₹100.00</span>
+                <div class="cart-quantity cart-column">
+                    <input class="cart-quantity-input" type="number" value="1">
+                    <button class="btn btn-danger" type="button">REMOVE</button>
+                </div>
+            </div>
+        </div>
+<!--            <div class="cart-row">-->
+<!--                <div class="cart-item cart-column">-->
+<!--                    <img class="cart-item-image" src="https://images-na.ssl-images-amazon.com/images/I/91U6tjtUrYL.jpg" width="100" height="100">-->
+<!--                    <span class="cart-item-title">SALLY RONNEY</span>         -->
+<!--                </div>-->
+<!--                <span class="cart-price cart-column">$50.00</span>-->
+<!--                <div class="cart-quantity cart-column">-->
+<!--                    <input class="cart-quantity-input" type="number" value="2">-->
+<!--                    <button class="btn btn-danger" type="button">REMOVE</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="cart-row">-->
+<!--                <div class="cart-item cart-column">-->
+<!--                    <img class="cart-item-image" src="https://images-na.ssl-images-amazon.com/images/I/91U6tjtUrYL.jpg" width="100" height="100">-->
+<!--                    <span class="cart-item-title">SALLY RONNEY</span>         -->
+<!--                </div>-->
+<!--                <span class="cart-price cart-column">$50.00</span>-->
+<!--                <div class="cart-quantity cart-column">-->
+<!--                    <input class="cart-quantity-input" type="number" value="1">-->
+<!--                    <button class="btn btn-danger" type="button">REMOVE</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">₹100</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section>
+    
+</body>
+</html>
