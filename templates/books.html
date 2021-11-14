@@ -57,11 +57,11 @@
                             <option>11</option>
                             <option>12</option>
                            </select>
-                           <a href=""class="btn btn-warning btn-lg me-2">ADD TO CART</a>
+                           <a href="url_for('checkout',id=books[i]['id'])"class="btn btn-warning btn-lg me-2">ADD TO CART</a>
                         {%if books[i]['searchInfo']['textSnippet']:%}
                            <h5>Synopsis:</h5>
 
-                           <P>{{books[i]['searchInfo']['textSnippet'].data}}</P>
+                           <P>{{books[i]['searchInfo']['textSnippet']}}</P>
                         {%endif%}
 
                      </div>

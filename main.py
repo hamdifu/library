@@ -46,10 +46,26 @@ def admin_only(f):
     return decorated_function
 
 #DataBase
+
+subs = db.Table('subs',
+                db.Column('id',db.Integer,db.ForeignKey('user.id')),
+                db.Column('book_id',db.Integer,db.ForeignKey('book.book_id'))
+)
+
+#User
+class User(UserMixin,db.Model):
+    __tablename__ = "user"
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(30),nullable= False)
+    email = db.Column(db.String(50), nullable=False, unique=True)
+    password = db.Column(db.String(100),nullable=False,unique=True)
+    # books = db.Column(db.Integer,db.ForeignKey('book.id'))
+    # books = db.relationship('Book')
+
 #Books
 class Book(db.Model):
     __tablename__ = "book"
-    id = db.Column(db.Integer, primary_key=True)
+    book_id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(250), unique=True, nullable=False)
     author = db.Column(db.String(250),nullable=False)
     issue_dt = db.Column(db.String(250),nullable=False)
@@ -59,19 +75,8 @@ class Book(db.Model):
     video_book = db.Column(db.String(250))
     month=db.Column(db.Integer)
     # title_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-
-#User
-class User(UserMixin,db.Model):
-    __tablename__ = "user"
-    id = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.String(30),nullable= False)
-    email = db.Column(db.String(50), nullable=False, unique=True)
-    password = db.Column(db.String(100),nullable=False,unique=True)
-    books = db.Column(db.Integer,db.ForeignKey('book.id'))
-    books = db.relationship('Book')
-
-
+    # user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    subscription = db.relationship('User', secondary=subs, backref=db.backref('subscribers', lazy='dynamic'))
 
 db.create_all()
 
@@ -103,7 +108,6 @@ def register():
         db.session.commit()
         login_user(new_user)
         return redirect(url_for('home'))
-
     return render_template("register.html", form=form, logged_in=current_user.is_authenticated)
 
 @app.route('/login',methods=['GET', 'POST'])
@@ -135,25 +139,32 @@ def search(title):
     data = response.json()['items'][:5]
     color_list = ['#e9c46ab3','#023e7db3','#e63946b3','#56cfe1b3','#9d0208b3','#003566b3']
 
-
     return render_template('books.html',books=data,name=title.title(),colors=color_list)
 
-@app.route('/checkout/<data>',methods=['GET', 'POST'])
-def checkout(data):
-    if Book.query.filter_by(data['id']):
+@app.route('/checkout/<id>',methods=['GET', 'POST'])
+def checkout(id):
+    if request.method == 'POST':
         pass
+
+    if Book.query.filter_by(book_id=id):
+        new_book = Book.query.filter_by(book_id=id).first()
+        current_user.subscribers.append(new_book)
     else:
+        url = 'https://www.googleapis.com/books/v1/volumes?q=' + id
+        response = requests.get(url)
+        data = response.json()['items']
         new_book = Book(
-            id=data['id'],
+            id=id,
             title=data['volumeInfo']['title'],
             author=data['volumeInfo']['authors'],
             issue_dt=None,
             img_url=data['volumeInfo']['imageLinks']['thumbnail'],
             ebook=data['volumeInfo']['previewLink'],
-            user=current_user,
             month=0
         )
-
+        db.session.add(new_book)
+        db.session.commit()
+        current_user.subscribers.append(new_book)
     return render_template('checkout.html', book=new_book)
 
 
